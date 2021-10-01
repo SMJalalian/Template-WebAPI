@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using MyProject.Configuration;
 using MyProject.WebFramework;
 
@@ -27,7 +28,7 @@ namespace EndUserApi
         {
             services.AddControllers();
 
-            services.AddCustomServices(_env.EnvironmentName);
+            services.AddCustomServices(_env.EnvironmentName, _globalSettings);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MyProject.Services.ExternalServices;
 using System.Globalization;
 
-namespace MyProject.WebFramework.ServiceConfiguration
+namespace MyProject.WebFramework.ServiceConfiguration.Localization
 {
     public static class LocalizationConfigurationExtensions
     {
