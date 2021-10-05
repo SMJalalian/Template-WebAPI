@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{23188AAB-F8C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EndUserApi", "EndUserApi", "{B4B72F77-1BBB-4BDF-96CE-47DC735B0445}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndUserApi", "Endpoints\API\EndUserApi\EndUserApi.csproj", "{C33E3DE1-3A22-41A8-B414-34FF25CE7F8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndUserApi", "Endpoints\API\EndUserApi\EndUserApi.csproj", "{C33E3DE1-3A22-41A8-B414-34FF25CE7F8A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - WebFramework", "2 - WebFramework", "{924784F2-E84E-4443-84C9-152BE3B22A6B}"
 EndProject
@@ -17,23 +17,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebFramework", "WebFramewor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Services", "3 - Services", "{42C9301A-5FBC-41FF-B07E-69B70AE43913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{8894E643-771F-44F7-BE84-37A76B466095}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{8894E643-771F-44F7-BE84-37A76B466095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{3B3A72A4-3A4D-4A9D-AA80-BFEE3A548038}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{3B3A72A4-3A4D-4A9D-AA80-BFEE3A548038}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data", "4 - Data", "{DF4A4843-5B5B-477B-9049-92FA6DDA6AE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Domain", "5 - Domain", "{C271893A-B4B4-49C2-9B60-6AAF3CC0D088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{BD4B2BCC-F80F-44F9-9693-BC8ECEFF2A49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{BD4B2BCC-F80F-44F9-9693-BC8ECEFF2A49}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Configuration", "6 - Configuration", "{C13AE14F-2DE0-437B-80AB-A40332BF033F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "Configuration\Configuration.csproj", "{A188535A-D930-4543-AFC9-E69454255095}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "Configuration\Configuration.csproj", "{A188535A-D930-4543-AFC9-E69454255095}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7 - Shared", "7 - Shared", "{1267FE46-8972-453B-8F7C-250789E7D9F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{33F569AC-F283-4182-B318-C05BF11205C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{33F569AC-F283-4182-B318-C05BF11205C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

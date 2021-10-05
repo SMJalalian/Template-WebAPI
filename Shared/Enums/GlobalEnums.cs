@@ -11,4 +11,12 @@ namespace MyProject.Shared.Enums
         [Display(Name = "Unknown")]
         Unknown = 3
     }
+
+    public enum GenderType
+    {
+        [Display(Name = "Male")]
+        Male = 0,
+        [Display(Name = "Female")]
+        Female = 1
+    }
 }
