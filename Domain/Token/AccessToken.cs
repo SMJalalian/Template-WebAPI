@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace MyProject.Services.JWT
+namespace MyProject.Domain.Token.JWT
 {
     public class AccessToken
     {
