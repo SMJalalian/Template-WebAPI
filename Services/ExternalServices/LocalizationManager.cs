@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Options;
 using MyProject.Configuration;
+using MyProject.Shared.Enums;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net;
-using MyProject.Shared.Enums;
 
 namespace MyProject.Services.ExternalServices
 {
