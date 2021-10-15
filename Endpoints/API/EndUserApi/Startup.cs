@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyProject.Configuration;
+using MyProject.Data;
 using MyProject.WebFramework;
 
 namespace EndUserApi
@@ -26,6 +28,7 @@ namespace EndUserApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<GlobalSettings>(Configuration.GetSection(nameof(GlobalSettings)));
 
             services.AddCustomServices(_env.EnvironmentName, _globalSettings);
         }
@@ -43,6 +46,8 @@ namespace EndUserApi
                     c.SwaggerEndpoint("/swagger/v2/swagger.json", "V2 (en-US) Documents");
                 });
             }
+
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 

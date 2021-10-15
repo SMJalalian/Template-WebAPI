@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace MyProject.Services.DomainServices.Token
 {
-    public class JwtManager : IJwtManager
+    public class JwtManager : IWebToken
     {
         private readonly GlobalSettings _siteSettings;
         private readonly CustomUserManager _userManager;

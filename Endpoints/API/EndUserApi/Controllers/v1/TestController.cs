@@ -5,7 +5,6 @@ using MyProject.WebFramework.Controllers;
 
 namespace MyProject.EndUserApi.Controllers.v1
 {
-    [ApiVersion("1")]
     public class TestController : BaseController
     {
         [HttpGet]

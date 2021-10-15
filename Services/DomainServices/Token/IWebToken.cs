@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MyProject.Services.DomainServices.Token
 {
-    public interface IJwtManager
+    public interface IWebToken
     {
         Task<AccessToken> GenerateAsync(User user);
-        string ReadToken(string jwtInput);
-        string GetEmailFromToken(string JwtToken);
+        //string ReadToken(string jwtInput);
+        //string GetEmailFromToken(string JwtToken);
     }
 }

@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace MyProject.Data.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class SQLRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly ApplicationDBContext DbContext;
         public DbSet<TEntity> Entities { get; }
         public virtual IQueryable<TEntity> Table => Entities;
         public virtual IQueryable<TEntity> TableNoTracking => Entities.AsNoTracking();
 
-        public Repository(ApplicationDBContext dbContext)
+        public SQLRepository(ApplicationDBContext dbContext)
         {
             DbContext = dbContext;
             Entities = DbContext.Set<TEntity>();

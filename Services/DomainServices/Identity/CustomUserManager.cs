@@ -135,7 +135,7 @@ namespace MyProject.Services.DomainServices.Identity
         {
             try
             {
-                User user = new User { UserName = dto.Email, Email = dto.Email };
+                User user = new() { UserName = dto.Email, Email = dto.Email };
 
                 var result = await CreateAsync(user, dto.Password);
 

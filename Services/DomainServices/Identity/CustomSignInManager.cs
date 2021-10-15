@@ -15,9 +15,10 @@ namespace MyProject.Services.DomainServices.Identity
             IUserClaimsPrincipalFactory<User> claimsFactory,
             IOptions<IdentityOptions> optionsAccessor,
             ILogger<SignInManager<User>> logger,
-            IAuthenticationSchemeProvider schemeProvider
+            IAuthenticationSchemeProvider schemeProvider,
+            IUserConfirmation<User> confirmation
             )
-            : base(userManager, contextAccessor, claimsFactory, optionsAccessor, logger, schemeProvider)
+            : base(userManager, contextAccessor, claimsFactory, optionsAccessor, logger, schemeProvider,confirmation)
         {
 
         }
