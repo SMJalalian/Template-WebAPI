@@ -24,16 +24,15 @@ namespace EndUserApi
             _globalSettings = Configuration.GetSection(nameof(GlobalSettings)).Get<GlobalSettings>();
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.Configure<GlobalSettings>(Configuration.GetSection(nameof(GlobalSettings)));
 
             services.AddCustomServices(_env.EnvironmentName, _globalSettings);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

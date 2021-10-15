@@ -18,32 +18,33 @@ namespace MyProject.Services.DomainServices.Token
 {
     public class JwtManager : IWebToken
     {
-        private readonly GlobalSettings _siteSettings;
+        private readonly GlobalSettings _globalSettings;
         private readonly CustomUserManager _userManager;
 
-        public JwtManager(IOptionsSnapshot<GlobalSettings> siteSettings, CustomUserManager userManager)
+        public JwtManager(IOptionsMonitor<GlobalSettings> optionsMonitor, CustomUserManager userManager)
         {
             _userManager = userManager;
-            _siteSettings = siteSettings.Value;
+            _globalSettings = optionsMonitor.CurrentValue;
         }
 
         public async Task<AccessToken> GenerateAsync(User user)
         {
-            var secretKey = Encoding.UTF8.GetBytes(_siteSettings.JwtSettings.SecretKey);
+            var secretKey = Encoding.UTF8.GetBytes(_globalSettings.JwtSettings.SecretKey);
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKey), SecurityAlgorithms.HmacSha256Signature);
 
-            //var encryptionkey = Encoding.UTF8.GetBytes(_siteSettings.JwtSettings.Encryptkey);
+            //var encryptionkey = Encoding.UTF8.GetBytes(_globalSettings.JwtSettings.Encryptkey);
             //var encryptingCredentials = new EncryptingCredentials(new SymmetricSecurityKey(encryptionkey), SecurityAlgorithms.Aes128KW, SecurityAlgorithms.Aes128CbcHmacSha256);
-
+           
             var claims = await GetClaimsAsync(user);
             var descriptor = new SecurityTokenDescriptor
             {
-                Issuer = _siteSettings.JwtSettings.Issuer,
-                Audience = _siteSettings.JwtSettings.Audience,
+                Issuer = _globalSettings.JwtSettings.Issuer,
+                Audience = _globalSettings.JwtSettings.Audience,
                 IssuedAt = DateTime.Now,
-                NotBefore = DateTime.Now.AddMinutes(_siteSettings.JwtSettings.NotBeforeMinutes),
-                Expires = DateTime.Now.AddMinutes(_siteSettings.JwtSettings.ExpirationMinutes),
+                NotBefore = DateTime.Now.AddMinutes(_globalSettings.JwtSettings.NotBeforeMinutes),
+                Expires = DateTime.Now.AddMinutes(_globalSettings.JwtSettings.ExpirationMinutes),
                 SigningCredentials = signingCredentials,
+                //EncryptingCredentials = encryptingCredentials,
                 Subject = new ClaimsIdentity(claims)
             };
 
@@ -51,7 +52,7 @@ namespace MyProject.Services.DomainServices.Token
 
             var securityToken = tokenHandler.CreateJwtSecurityToken(descriptor);
 
-            return new AccessToken(securityToken,_siteSettings.JwtSettings.TokenType);
+            return new AccessToken(securityToken, _globalSettings.JwtSettings.TokenType);
         }
 
         public string ReadToken(string jwtToken)

@@ -13,22 +13,22 @@ namespace MyProject.Services.DomainServices.Messaging
 {
     public class EmailManager
     {
-        private readonly GlobalSettings _siteSettings;
+        private readonly GlobalSettings _globalSettings;
 
-        public EmailManager(IOptionsSnapshot<GlobalSettings> siteSettings)
+        public EmailManager(IOptionsMonitor<GlobalSettings> globalSettings)
         {
-            _siteSettings = siteSettings.Value;
+            _globalSettings = globalSettings.CurrentValue;
         }
 
         public ApiResult SendEmail(EmailDto sendEmailDto, CancellationToken cancellationToken)
         {
             try
             {
-                SmtpClient client = new(_siteSettings.MailSettings.ServerDNSName);
-                client.Credentials = new NetworkCredential(_siteSettings.MailSettings.UserName, _siteSettings.MailSettings.Password);
+                SmtpClient client = new(_globalSettings.MailSettings.ServerDNSName);
+                client.Credentials = new NetworkCredential(_globalSettings.MailSettings.UserName, _globalSettings.MailSettings.Password);
                 MailMessage mailMessage = new();
                 mailMessage.Subject = sendEmailDto.Subject;
-                mailMessage.From = new MailAddress(_siteSettings.MailSettings.UserName, sendEmailDto.SenderName);
+                mailMessage.From = new MailAddress(_globalSettings.MailSettings.UserName, sendEmailDto.SenderName);
                 mailMessage.To.Add(sendEmailDto.RecieverEmail);
                 mailMessage.IsBodyHtml = sendEmailDto.IsBodyHtml;
                 mailMessage.Body = sendEmailDto.Body;

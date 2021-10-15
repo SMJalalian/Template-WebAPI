@@ -20,17 +20,14 @@ namespace MyProject.WebFramework
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IApplicationBuilder, ApplicationBuilder>();
-
+            
+            services.AddApiVersioning();
             services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(globalSettings.SQLSettings.ConnectionString));
-
-
-            services.AddCustomWebTokenAuthentication(globalSettings.JwtSettings);
-
             services.AddScoped<EmailManager>();
 
             #region Custom Services
 
-            services.AddApiVersioning();
+            services.AddCustomWebTokenAuthentication(globalSettings.JwtSettings);
             services.AddCustomIdentity();
             services.AddCustomSwagger(environment, globalSettings);
             services.AddCustomLocalization();
